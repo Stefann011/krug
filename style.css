@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #050210;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    animation: spin 4s linear infinite, changeColor 8s linear infinite;
+    position: relative;
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    animation: spin 4s linear infinite reverse, changeColor 8s linear infinite reverse;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        background: conic-gradient(#fb5dad, #55fb9f, #b97aff, #fb5dad);
+        background-size: 300% 300%;
+        background-position: 0%;
+    }
+    100% {
+        background: conic-gradient(#fb5dad, #55fb9f, #b97aff, #fb5dad);
+        background-size: 300% 300%;
+        background-position: 100%;
+    }
+}
+
